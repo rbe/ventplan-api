@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!--
+        POM.
+    -->
+    <groupId>eu.artofcoding.ventplan</groupId>
+    <artifactId>ventplan-api</artifactId>
+    <version>7.2.0</version>
+    <!--
+        Parent POM.
+    -->
+    <parent>
+        <groupId>eu.artofcoding</groupId>
+        <artifactId>aoc-parent</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    <!--
+        Project Information.
+    -->
+    <name>Ventplan API</name>
+    <url>http://www.ventplan.de/product/ventplan-server/module-api.html</url>
+    <!--
+        Build Settings.
+    -->
+    <packaging>jar</packaging>
+    <!-- Properties. -->
+    <properties>
+        <!--
+            Explicitly declaring the source encoding eliminates the following message
+            [WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+        -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--
+            Runtime, Virtual Machine.
+        -->
+        <version.java.vm>1.7</version.java.vm>
+        <!--
+            Libraries.
+        -->
+        <!--
+            Maven Plugins.
+            http://maven.apache.org/plugins/index.html
+        -->
+        <!-- Maven Compiler Plugin, http://maven.apache.org/plugins/maven-compiler-plugin/ -->
+        <version.org.apache.maven.plugins.maven-compiler-plugin>2.5.1</version.org.apache.maven.plugins.maven-compiler-plugin>
+        <!-- Maven Surefire Plugin, http://maven.apache.org/plugins/maven-surefire-plugin/ -->
+        <version.org.apache.maven.plugins.maven-surefire-plugin>2.12.4</version.org.apache.maven.plugins.maven-surefire-plugin>
+        <!-- Maven JAR Plugin -->
+        <version.org.apache.maven.plugins.maven-jar-plugin>2.4</version.org.apache.maven.plugins.maven-jar-plugin>
+        <!-- Maven WAR Plugin -->
+        <version.org.apache.maven.plugins.maven-war-plugin>2.3</version.org.apache.maven.plugins.maven-war-plugin>
+        <!-- Maven Assembly Plugin -->
+        <version.org.apache.maven.plugins.maven-assembly-plugin>2.3</version.org.apache.maven.plugins.maven-assembly-plugin>
+        <!-- Maven Bundle Plugin -->
+        <version.org.apache.maven-bundle-plugin>2.3.7</version.org.apache.maven-bundle-plugin>
+        <!--
+            Beetlejuice.
+        -->
+        <version.eu.artofcoding.beetlejuice>1.0.0-SNAPSHOT</version.eu.artofcoding.beetlejuice>
+        <!--
+            Java EE.
+        -->
+        <version.javax.javaee-api>6.0</version.javax.javaee-api>
+        <version.javax.enterprise.cdi-api>1.0-SP4</version.javax.enterprise.cdi-api>
+        <!--
+            Unit Testing.
+        -->
+        <version.org.junit>4.10</version.org.junit>
+        <!-- TestNG, http://maven.apache.org/plugins/maven-surefire-plugin/examples/testng.html -->
+        <version.org.testng>6.8</version.org.testng>
+        <!-- Jersey -->
+        <version.com.sun.jersey.jersey-server>1.16</version.com.sun.jersey.jersey-server>
+        <!-- JAX-WS -->
+        <version.org.jvnet.jax-ws-commons>1.3</version.org.jvnet.jax-ws-commons>
+    </properties>
+    <dependencies>
+        <!--
+            Jersey
+        -->
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-server</artifactId>
+            <version>${version.com.sun.jersey.jersey-server}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-grizzly2</artifactId>
+            <version>${version.com.sun.jersey.jersey-server}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>${version.com.sun.jersey.jersey-server}</version>
+        </dependency>
+        <!--
+            Beetlejuice.
+        -->
+        <dependency>
+            <groupId>eu.artofcoding.beetlejuice</groupId>
+            <artifactId>beetlejuice-cdm</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+        <!--
+            Maven Plugins.
+            http://maven.apache.org/guides/mini/guide-configuring-plugins.html
+        -->
+        <plugins>
+            <!-- maven-compiler-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${version.org.apache.maven.plugins.maven-compiler-plugin}</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <!-- maven-surefire-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${version.org.apache.maven.plugins.maven-surefire-plugin}</version>
+            </plugin>
+        </plugins>
+        <finalName>${project.artifactId}</finalName>
+    </build>
+</project>
